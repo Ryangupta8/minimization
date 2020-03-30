@@ -33,9 +33,9 @@ add_service_files(
    FILES
 )
 
-include_directories(${EIGEN3_INCLUDE_DIR})
-include_directories(include/${PROJECT_NAME})
-include_directories(src)
+# include_directories(${EIGEN3_INCLUDE_DIR})
+# include_directories(include/${PROJECT_NAME})
+# include_directories(src)
 
 catkin_package(
   INCLUDE_DIRS 
@@ -57,21 +57,22 @@ include_directories(
   src
   ${catkin_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIR}
 )
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 
-add_executable(Example src/Example.cpp include/minimization/Path.h include/minimization/Trajectory.h)
+add_executable(Example src/Example.cpp include/minimization/Path.h include/minimization/Trajectory.h ${SOURCES})
 target_link_libraries(Example ${catkin_LIBRARIES})
-add_dependencies(Example ${catkin_EXPORTED_TARGETS})
+add_dependencies(Example ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS}) 
 
 
 # add_executable(Test src/Test.cpp include/minimization/Path.h include/minimization/Trajectory.h)
 # target_link_libraries(Test ${catkin_LIBRARIES})
 # add_dependencies(Test ${catkin_EXPORTED_TARGETS})
 
-install(DIRECTORY include/${PROJECT_NAME}
+install(DIRECTORY include/${PROJECT_NAME}/
     DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
     FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
 )

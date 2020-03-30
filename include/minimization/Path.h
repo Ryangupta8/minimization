@@ -43,7 +43,6 @@
 
 #include <list>
 #include <Eigen/Core>
-#include "ros/ros.h"
 
 class PathSegment
 {

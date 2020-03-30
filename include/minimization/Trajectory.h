@@ -41,7 +41,6 @@
 
 #pragma once
 
-#include "ros/ros.h"
 #include <Eigen/Core>
 #include <Path.h>
 

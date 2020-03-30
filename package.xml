@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<package>
+<package format="2">
   <name>minimization</name>
-  <version>0.0.0</version>
+  <version>1.2.4</version>
   <description>minimization</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
@@ -16,18 +16,6 @@
   <license>TODO</license>
 
 
-  <!-- Url tags are optional, but mutiple are allowed, one per tag -->
-  <!-- Optional attribute type can be: website, bugtracker, or repository -->
-  <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/grid</url> -->
-
-
-  <!-- Author tags are optional, mutiple are allowed, one per tag -->
-  <!-- Authors do not have to be maintianers, but could be -->
-  <!-- Example: -->
-  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
-
-
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>rospy</build_depend>
@@ -38,13 +26,13 @@
   <build_depend>message_generation</build_depend>
   <build_depend>tf</build_depend>
 
-  <run_depend>rospy</run_depend>
-  <run_depend>roscpp</run_depend>
-  <run_depend>geometry_msgs</run_depend>  
-  <run_depend>sensor_msgs</run_depend>  
-  <run_depend>std_msgs</run_depend>
-  <run_depend>message_runtime</run_depend>
-  <run_depend>tf</run_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>  
+  <exec_depend>sensor_msgs</exec_depend>  
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>tf</exec_depend>
 
 
 
