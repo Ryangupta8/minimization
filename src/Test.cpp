@@ -2,7 +2,8 @@
 #include <iostream>
 #include <list>
 #include <Eigen/Core>
-#include <minimization/Trajectory.h>
+#include <Trajectory.h>
+#include <Path.h>
 
 int numTests = 0;
 int numTestsFailed = 0;

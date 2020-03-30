@@ -42,16 +42,10 @@
 #include <Trajectory.h>
 #include <Path.h>
 
-// #include <include/minimization/Trajectory.h>
-// #include <include/minimization/Path.h>
-
-
-using namespace std;
-using namespace Eigen;
 
 int main() {
-	list<VectorXd> waypoints;
-	VectorXd waypoint(3);
+	std::list<Eigen::VectorXd> waypoints;
+	Eigen::VectorXd waypoint(3);
 	waypoint << 0.0, 0.0, 0.0;
 	waypoints.push_back(waypoint);
 	waypoint << 0.0, 0.2, 1.0;
@@ -67,17 +61,17 @@ int main() {
 	waypoint << 0.0, 0.0, 1.0;
 	waypoints.push_back(waypoint);
 
-	VectorXd maxAcceleration(3);
+	Eigen::VectorXd maxAcceleration(3);
 	maxAcceleration << 1.0, 1.0, 1.0;
-	VectorXd maxVelocity(3);
+	Eigen::VectorXd maxVelocity(3);
 	maxVelocity << 1.0, 1.0, 1.0;
 
 	Trajectory trajectory(Path(waypoints, 0.1), maxVelocity, maxAcceleration);
 	trajectory.outputPhasePlaneTrajectory();
 	if(trajectory.isValid()) {
 		double duration = trajectory.getDuration();
-		cout << "Trajectory duration: " << duration << " s" << endl << endl;
-		cout << "Time      Position                  Velocity" << endl;
+		std::cout << "Trajectory duration: " << duration << " s" << std::endl << std::endl;
+		std::cout << "Time      Position                  Velocity" << std::endl;
 		for(double t = 0.0; t < duration; t += 0.1) {
 			printf("%6.4f   %7.4f %7.4f %7.4f   %7.4f %7.4f %7.4f\n", t, trajectory.getPosition(t)[0], trajectory.getPosition(t)[1], trajectory.getPosition(t)[2],
 				trajectory.getVelocity(t)[0], trajectory.getVelocity(t)[1], trajectory.getVelocity(t)[2]);
@@ -86,11 +80,11 @@ int main() {
 			trajectory.getVelocity(duration)[0], trajectory.getVelocity(duration)[1], trajectory.getVelocity(duration)[2]);
 	}
 	else {
-		cout << "Trajectory generation failed." << endl;
+		std::cout << "Trajectory generation failed." << std::endl;
 	}
 
-	string s;
-	cin >> s;
+	std::string s;
+	std::cin >> s;
 }
 
 
