@@ -39,8 +39,11 @@
 #include <iostream>
 #include <cstdio>
 #include <Eigen/Core>
-#include <minimization/Trajectory.h>
-#include <minimization/Path.h>
+#include <Trajectory.h>
+#include <Path.h>
+
+// #include <include/minimization/Trajectory.h>
+// #include <include/minimization/Path.h>
 
 
 using namespace std;

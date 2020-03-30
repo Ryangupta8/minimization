@@ -33,21 +33,13 @@ add_service_files(
    FILES
 )
 
-# generate_messages(
-#    DEPENDENCIES
-#    std_msgs
-#    std_srvs
-#    actionlib_msgs
-#    geometry_msgs
-# )
-
 include_directories(${EIGEN3_INCLUDE_DIR})
-include_directories(include)
+include_directories(include/${PROJECT_NAME})
 include_directories(src)
 
 catkin_package(
   INCLUDE_DIRS 
-   include
+   include/${PROJECT_NAME}
   CATKIN_DEPENDS 
    roscpp
    rospy
@@ -61,7 +53,8 @@ catkin_package(
  )
 
 include_directories(
-  include
+  include/${PROJECT_NAME}
+  src
   ${catkin_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
 )
@@ -80,7 +73,7 @@ add_dependencies(Example ${catkin_EXPORTED_TARGETS})
 
 install(DIRECTORY include/${PROJECT_NAME}
     DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-    FILES_MATCHING PATTERN "*.h"
+    FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
 )
 
 

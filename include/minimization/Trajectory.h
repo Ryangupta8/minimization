@@ -43,7 +43,7 @@
 
 #include "ros/ros.h"
 #include <Eigen/Core>
-#include <minimization/Path.h>
+#include <Path.h>
 
 class Trajectory
 {
