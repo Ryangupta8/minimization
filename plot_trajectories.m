@@ -17,7 +17,7 @@ plot(xt(:,1), yt(:,1),'.');
 title('x(t) vs y(t)');
 xlabel('x(t)');
 ylabel('y(t)');
-print -djpeg90 -r0 mk_wps_x_vs_y.jpg
+print -djpeg90 -r0 4s_dt_mk_wps_x_vs_y.jpg
 
 
 % Figure 2
@@ -26,7 +26,7 @@ plot(time(:),xt(:,1),time(:),yt(:,1));
 title('x(t) and y(t)');
 legend('x(t)', 'y(t)');
 xlabel('time');
-print -djpeg90 -r0 mk_wps_position_vs_time.jpg
+print -djpeg90 -r0 4s_dt_mk_wps_position_vs_time.jpg
 
 
 % Figure 3
@@ -35,7 +35,7 @@ plot(time(:),xt(:,2),time(:), yt(:,2));
 title('xdot(t) and ydot(t)');
 legend('xdot(t)', 'ydot(t)');
 xlabel('time');
-print -djpeg90 -r0 mk_wps_velocity_vs_time.jpg
+print -djpeg90 -r0 4s_dt_mk_wps_velocity_vs_time.jpg
 
 % Figure 4
 figure;
@@ -45,4 +45,4 @@ plot(time(1:end-1),dxdt(:),time(1:end-1), dydt(:));
 title('xdotdot(t) and ydotdot(t)');
 legend('xdotdot(t)', 'ydotdot(t)');
 xlabel('time');
-print -djpeg90 -r0 mk_wps_accel_vs_time.jpg
+print -djpeg90 -r0 4s_dt_mk_wps_accel_vs_time.jpg

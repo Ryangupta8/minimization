@@ -33,7 +33,9 @@ int main() {
 	Eigen::VectorXd maxVelocity(2);
 	maxVelocity << 0.45, 0.45;
 
-	Trajectory trajectory(Path(waypoints, 0.1), maxVelocity, maxAcceleration);
+	double timeStep = 4;
+
+	Trajectory trajectory(Path(waypoints, 0.1), maxVelocity, maxAcceleration, timeStep);
 	// Prints out txts for the phase plane plot
 	trajectory.outputPhasePlaneTrajectory();
 
