@@ -68,6 +68,10 @@ add_executable(Test src/Test.cpp include/minimization/Path.h include/minimizatio
 target_link_libraries(Test ${catkin_LIBRARIES})
 add_dependencies(Test ${catkin_EXPORTED_TARGETS})
 
+add_executable(2d_example src/2d_example.cpp include/minimization/Path.h include/minimization/Trajectory.h src/Trajectory.cpp src/Path.cpp ${SOURCES})
+target_link_libraries(2d_example ${catkin_LIBRARIES})
+add_dependencies(2d_example ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS}) 
+
 install(DIRECTORY include/${PROJECT_NAME}/
     DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
     FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
