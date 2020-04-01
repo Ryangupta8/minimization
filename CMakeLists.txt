@@ -72,6 +72,10 @@ add_executable(2d_example src/2d_example.cpp include/minimization/Path.h include
 target_link_libraries(2d_example ${catkin_LIBRARIES})
 add_dependencies(2d_example ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS}) 
 
+add_executable(mk_wps1 src/mk_wps1.cpp include/minimization/Path.h include/minimization/Trajectory.h src/Trajectory.cpp src/Path.cpp ${SOURCES})
+target_link_libraries(mk_wps1 ${catkin_LIBRARIES})
+add_dependencies(mk_wps1 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS}) 
+
 install(DIRECTORY include/${PROJECT_NAME}/
     DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
     FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"

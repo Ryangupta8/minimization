@@ -93,7 +93,7 @@ Trajectory::~Trajectory(void) {
 }
 
 void Trajectory::outputPhasePlaneTrajectory() const {
-	ofstream file1("phasePlaneMaxVelocity.txt");
+	ofstream file1("~/min_ws/src/minimization/output/phasePlaneMaxVelocity.txt");
 	const double stepSize = path.getLength() / 100000.0;
 	for(double s = 0.0; s < path.getLength(); s += stepSize) {
 		double maxVelocity = getAccelerationMaxPathVelocity(s);
@@ -103,7 +103,7 @@ void Trajectory::outputPhasePlaneTrajectory() const {
 	}
 	file1.close();
 
-	ofstream file2("phasePlaneTrajectory.txt");
+	ofstream file2("~/min_ws/src/minimization/output/phasePlaneTrajectory.txt");
 	for(list<TrajectoryStep>::const_iterator it = trajectory.begin(); it != trajectory.end(); it++) {
 		file2 << it->pathPos << "  " << it->pathVel << endl;
 	}
