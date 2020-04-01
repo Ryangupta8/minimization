@@ -5,6 +5,7 @@ clc
 %%% 1. plot x vs y position
 %%% 2. plot x(t) and y(t)
 %%% 3. plot xdot(t) and ydot(t)
+%%% 4. plot xdotdot(t) and ydotdot(t)
 time = importdata('/home/ryangupta/min_ws/src/minimization/output/time.txt');
 xt = importdata('/home/ryangupta/min_ws/src/minimization/output/xt_pos_vel.txt');
 yt = importdata('/home/ryangupta/min_ws/src/minimization/output/yt_pos_vel.txt');
@@ -35,3 +36,13 @@ title('xdot(t) and ydot(t)');
 legend('xdot(t)', 'ydot(t)');
 xlabel('time');
 print -djpeg90 -r0 mk_wps_velocity_vs_time.jpg
+
+% Figure 4
+figure;
+dydt = diff(yt(:,2))./diff(time(:));
+dxdt = diff(xt(:,2))./diff(time(:));
+plot(time(1:end-1),dxdt(:),time(1:end-1), dydt(:));
+title('xdotdot(t) and ydotdot(t)');
+legend('xdotdot(t)', 'ydotdot(t)');
+xlabel('time');
+print -djpeg90 -r0 mk_wps_accel_vs_time.jpg
