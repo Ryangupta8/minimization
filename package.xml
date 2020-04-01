@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>minimization</name>
-  <version>1.2.4</version>
-  <description>minimization</description>
+  <version>0.0.0</version>
+  <description>
+    This package computes a time optimal trajectory given a geometric path
+  </description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
@@ -25,6 +27,7 @@
   <build_depend>std_msgs</build_depend>
   <build_depend>message_generation</build_depend>
   <build_depend>tf</build_depend>
+  <build_depend>py_coverage</build_depend>
 
   <exec_depend>rospy</exec_depend>
   <exec_depend>roscpp</exec_depend>
@@ -33,6 +36,8 @@
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>message_runtime</exec_depend>
   <exec_depend>tf</exec_depend>
+  <exec_depend>py_coverage</exec_depend>
+  <exec_depend>py_coverage</exec_depend>
 
 
 

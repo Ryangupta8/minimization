@@ -1,0 +1,4 @@
+std_msgs/Float32MultiArray waypoints_x
+std_msgs/Float32MultiArray waypoints_y 
+std_msgs/Float32MultiArray maxAcceleration
+std_msgs/Float32MultiArray maxVelocity
