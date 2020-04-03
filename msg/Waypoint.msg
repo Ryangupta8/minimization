@@ -1,0 +1,2 @@
+float32 value_x
+float32 value_y

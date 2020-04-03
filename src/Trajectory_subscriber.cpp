@@ -3,28 +3,32 @@
 #include <limits>
 #include <iostream>
 #include <fstream>
-#include "minimization/Trajectorymsg.h"
+#include "minimization/WaypointList.h"
+#include "minimization/Waypoint.h"
 
 using namespace Eigen;
 using namespace std;
 
 
-void trajectory_cb(const minimization::Trajectorymsg& msg)
+void trajectory_cb(const minimization::WaypointList& msg)
 {
 	ROS_INFO("Subscribing to the trajectory publisher");
 	// Get msg values and convert to Eigen
-	double maxVel_x = msg.maxVelocity.data[0];
-	double maxVel_y = msg.maxVelocity.data[1];
-	double maxAcc_x = msg.maxAcceleration.data[0];
-	double maxAcc_y = msg.maxAcceleration.data[1];
+	double maxVel_x = msg.maxVelocity;
+	double maxVel_y = msg.maxVelocity;
+	double maxAcc_x = msg.maxAcceleration;
+	double maxAcc_y = msg.maxAcceleration;
 	
 	VectorXd maxV; maxV << maxVel_x, maxVel_y;
 	VectorXd maxA; maxA << maxAcc_x, maxAcc_y;
 
-	VectorXd temp; double x, y; list<VectorXd> wps;
-	for(int i=0; i < msg.waypoints_x.layout.dim[0].size; ++i){
-		x = msg.waypoints_x.data[i];
-		y = msg.waypoints_y.data[i];
+	VectorXd temp(2); double x, y; list<VectorXd> wps;
+
+	std::cout << msg.wp_list.size();
+	for(int i=0; i < msg.list_size; ++i){
+		cout << "loop" << std::endl;
+		x = msg.wp_list[i].value_x;
+		y = msg.wp_list[i].value_y;
 		temp << x, y;
 		wps.push_back(temp);
 	}

@@ -33,7 +33,8 @@ add_service_files(
 
 add_message_files(
    FILES
-   Trajectorymsg.msg
+   Waypoint.msg
+   WaypointList.msg
    )
 
 generate_messages(
