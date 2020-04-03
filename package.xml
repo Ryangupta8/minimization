@@ -27,7 +27,6 @@
   <build_depend>std_msgs</build_depend>
   <build_depend>message_generation</build_depend>
   <build_depend>tf</build_depend>
-  <build_depend>py_coverage</build_depend>
 
   <exec_depend>rospy</exec_depend>
   <exec_depend>roscpp</exec_depend>
@@ -36,9 +35,6 @@
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>message_runtime</exec_depend>
   <exec_depend>tf</exec_depend>
-  <exec_depend>py_coverage</exec_depend>
-  <exec_depend>py_coverage</exec_depend>
-
 
 
   <!-- The export tag contains other, unspecified, tags -->

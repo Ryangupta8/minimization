@@ -1,5 +1,4 @@
 #include "ros/ros.h"
-
 #include "Trajectory.h"
 #include <limits>
 #include <iostream>

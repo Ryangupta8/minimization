@@ -20,7 +20,6 @@ find_package(catkin REQUIRED COMPONENTS
 #find_package(Eigen3 REQUIRED)
 find_package(Boost REQUIRED)
 find_package(Eigen3 QUIET)
-find_package(catkin REQUIRED py_coverage)
 
 if(NOT EIGEN3_FOUND)
     find_package(PkgConfig REQUIRED)
@@ -28,15 +27,14 @@ if(NOT EIGEN3_FOUND)
     set(EIGEN3_INCLUDE_DIR ${EIGEN3_INCLUDE_DIRS})
 endif()
 
-catkin_python_setup()
-
 add_service_files(
    FILES
 )
 
 add_message_files(
    FILES
-   Trajectorymsg.msg)
+   Trajectorymsg.msg
+   )
 
 generate_messages(
   DEPENDENCIES
@@ -90,10 +88,6 @@ add_executable(Trajectory_subscriber src/Trajectory_subscriber.cpp include/minim
 target_link_libraries(Trajectory_subscriber ${catkin_LIBRARIES})
 add_dependencies(Trajectory_subscriber ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS}) 
 
-# add_executable(Trajectory_server src/Trajectory_server.cpp include/minimization/Path.h include/minimization/Trajectory.h src/Trajectory.cpp src/Path.cpp ${SOURCES})
-# target_link_libraries(Trajectory_server ${catkin_LIBRARIES})
-# add_dependencies(Trajectory_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS}) 
-
 install(DIRECTORY include/${PROJECT_NAME}/
     DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
     FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
@@ -103,10 +97,6 @@ install(DIRECTORY scripts/
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
     USE_SOURCE_PERMISSIONS
 )
-
-install(PROGRAMS scripts/py_coverage_minimization.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-  )
 
 
 
