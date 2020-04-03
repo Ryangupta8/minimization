@@ -76,7 +76,7 @@ int main(int argc, char **argv){
 	ros::init(argc,argv,"trajectory_listener");
 	ros::NodeHandle n;
 
-	ros::Subscriber sub = n.subscribe("trajectory", 1000, trajectory_cb);
+	ros::Subscriber sub = n.subscribe("/py_coverage/trajectory", 1000, trajectory_cb);
 
 	ros::spin();
 
