@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include "minimization/WaypointList.h"
-#include "minimization/Waypoint.h"
 
 using namespace Eigen;
 using namespace std;
@@ -18,17 +17,21 @@ void trajectory_cb(const minimization::WaypointList& msg)
 	double maxVel_y = msg.maxVelocity;
 	double maxAcc_x = msg.maxAcceleration;
 	double maxAcc_y = msg.maxAcceleration;
+	double size = msg.list_size;
 	
-	VectorXd maxV; maxV << maxVel_x, maxVel_y;
-	VectorXd maxA; maxA << maxAcc_x, maxAcc_y;
+	VectorXd maxV(2); maxV << maxVel_x, maxVel_y;
+	VectorXd maxA(2); maxA << maxAcc_x, maxAcc_y;
 
-	VectorXd temp(2); double x, y; list<VectorXd> wps;
+	VectorXd temp(2); 
+	double x, y; 
+	list<VectorXd> wps;
 
-	std::cout << msg.wp_list.size();
+	std::cout << "size = " << size << std::endl;
+	std::cout << "msg.wp_list.size() = " << msg.wp_list.size() << std::endl;
 	for(int i=0; i < msg.list_size; ++i){
 		cout << "loop" << std::endl;
-		x = msg.wp_list[i].value_x;
-		y = msg.wp_list[i].value_y;
+		x = msg.wp_list[i].x;
+		y = msg.wp_list[i].y;
 		temp << x, y;
 		wps.push_back(temp);
 	}
@@ -44,9 +47,9 @@ void trajectory_cb(const minimization::WaypointList& msg)
 		std::cout << "Trajectory duration: " << duration << " s" << std::endl << std::endl;
 		std::cout << "Time      Position                  Velocity" << std::endl;
 		// Save our variables in text files
-		std::ofstream file1("~/min_ws/src/minimization/output/xt_pos_vel.txt");
-		std::ofstream file2("~/min_ws/src/minimization/output/yt_pos_vel.txt");
-		std::ofstream file3("~/min_ws/src/minimization/output/time.txt");
+		std::ofstream file1("/home/ryangupta/min_ws/src/minimization/output/xt_pos_vel.txt");
+		std::ofstream file2("/home/ryangupta/min_ws/src/minimization/output/yt_pos_vel.txt");
+		std::ofstream file3("/home/ryangupta/min_ws/src/minimization/output/time.txt");
 		for(double t = 0.0; t < duration; t += 0.1) {
 			file3 << t << std::endl; // time.txt
 

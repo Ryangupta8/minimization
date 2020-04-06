@@ -33,13 +33,13 @@ add_service_files(
 
 add_message_files(
    FILES
-   Waypoint.msg
    WaypointList.msg
    )
 
 generate_messages(
   DEPENDENCIES
   std_msgs
+  geometry_msgs
 )
 
 catkin_package(
